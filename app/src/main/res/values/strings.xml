@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Data Structures Project</string>
+
+    <string name="arithmetic">Input Arithmetic Expression:</string>
+    <string name="submit">Submit</string>
+
+    <string name="select_option">Select an Option:</string>
+
+
+    <!--             Buttons             -->
+    <string name="inorder">InOrder</string>
+    <string name="postorder">PostOrder</string>
+    <string name="preorder">PreOrder</string>
+    <string name="back">Back</string>
+
+    <!--             Credits             -->
+    <string name="Credits">Done by:<br />\nMohammad Diab el Harakeh (12190288)<br />\nSam Zahreddine (12190015)<br />\nOmar Zalat (12190293) </string>
+</resources>
