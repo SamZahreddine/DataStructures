@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Data Structures Project</string>
+    <string name="app_name">datastructuresproject</string>
 
     <string name="arithmetic">Input Arithmetic Expression:</string>
     <string name="submit">Submit</string>

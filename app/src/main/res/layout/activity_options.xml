@@ -13,7 +13,9 @@
         android:layout_marginStart="124dp"
         android:layout_marginTop="240dp"
         android:layout_marginEnd="124dp"
+        android:layout_marginBottom="399dp"
         android:text="@string/inorder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +26,9 @@
         android:layout_height="92dp"
         android:layout_marginTop="364dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="275dp"
         android:text="@string/preorder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +38,9 @@
         android:layout_height="92dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="364dp"
+        android:layout_marginBottom="275dp"
         android:text="@string/postorder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,11 +62,11 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="117dp"
+        android:alpha="0.5"
         android:autoSizeTextType="uniform"
         android:gravity="center"
         android:text="@string/Credits"
         android:textStyle="bold"
-        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -84,9 +90,10 @@
         android:layout_marginStart="124dp"
         android:layout_marginTop="496dp"
         android:layout_marginEnd="124dp"
+        android:layout_marginBottom="143dp"
         android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
