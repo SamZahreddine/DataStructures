@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class options extends AppCompatActivity {
     private Button back, inOrder, postOrder, preOrder;
     private TextView result;
+    private char negated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,6 +182,7 @@ public class options extends AppCompatActivity {
     class Tree {
         private Node root;
 
+
         public Tree() {
             root = null;
         }
@@ -191,6 +193,7 @@ public class options extends AppCompatActivity {
             Stack1 stk = new Stack1(s.length());
             s = s + "?";
             int i = 0;
+
             char symbol = s.charAt(i);
             Node nodeNew;
             while (symbol != '?') {
@@ -206,6 +209,10 @@ public class options extends AppCompatActivity {
                     nodeNew.leftChild = ptr2;
                     nodeNew.rightChild = ptr1;
                     stk.push(nodeNew);
+                }
+                if (symbol == '~') {
+                    negated = s.charAt(i+1);
+
                 }
                 symbol = s.charAt(++i);
             }
@@ -230,6 +237,7 @@ public class options extends AppCompatActivity {
         Tree tree = new Tree();
         tree.insert(infix);
         String postFix = postOrder(tree.root);
+        postFix = postFix.replaceAll(String.valueOf(negated), "~" + negated);
         String text = "";
         text = "Original: " + infix + "\n" + "PostOrder: " + postFix;
         text = text.replaceAll("null","");
