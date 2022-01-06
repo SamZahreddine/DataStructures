@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView counter;
     private final String[] symbols = {"+", "-", "*", "/", "^", "%"};
     private Button submit;
+    private  String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String text = charSequence.toString().replaceAll(" ","");
+            text = charSequence.toString().replaceAll(" ","");
             if (text.isEmpty())
                 counter.setText("0");
 
@@ -88,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
 
         else {
             char begin = submissionText.charAt(0);
-            if ( begin == '+' || begin == '-' || begin == '*' || begin == '/' || begin == '^' || begin == '~' || begin == '%') {
+            if ( begin == '+' || begin == '-' || begin == '*' || begin == '/' || begin == '^' || begin == '%') {
                 Toast.makeText(getApplicationContext(), "Please Enter the expression in infix format!", Toast.LENGTH_LONG).show();
             }
 
-            else if (submissionTextLength(submissionText).length() > 15) {
+            else if (text.length() > 15) {
                 Toast.makeText(getApplicationContext(), "Expression too long!", Toast.LENGTH_SHORT).show();
             }
             else {

@@ -266,6 +266,7 @@ public class options extends AppCompatActivity {
         Tree tree = new Tree();
         tree.insert(infix);
         String infixUpdated = inOrder(tree.root);
+        infixUpdated = infixUpdated.replaceAll(String.valueOf(negated), "~" + negated);
         String text = "Original: " + infix + "\n" + "InOrder: " + infixUpdated;
         text = text.replaceAll("null","");
         result.setText(text);
@@ -292,6 +293,7 @@ public class options extends AppCompatActivity {
         Tree tree = new Tree();
         tree.insert(infix);
         String preFix = preOrder(tree.root);
+        preFix = preFix.replaceAll(String.valueOf(negated), "~" + negated);
         String text = "Original: " + infix + "\n" + "PreOrder: " + preFix;
         text = text.replaceAll("null","");
         result.setText(text);
