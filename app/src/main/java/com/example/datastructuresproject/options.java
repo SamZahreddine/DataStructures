@@ -197,7 +197,7 @@ public class options extends AppCompatActivity {
             char symbol = s.charAt(i);
             Node nodeNew;
             while (symbol != '?') {
-                if (symbol >= '0' && symbol <= '9' || symbol >= 'A' && symbol <= 'Z' ) {
+                if (Character.isLetterOrDigit(symbol) ) {
                     nodeNew = new Node(symbol);
                     stk.push(nodeNew);
                 }

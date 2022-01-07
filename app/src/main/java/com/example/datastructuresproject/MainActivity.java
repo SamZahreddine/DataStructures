@@ -69,26 +69,23 @@ public class MainActivity extends AppCompatActivity {
 
     //------------------------------ SUBMIT ------------------------------//
 
-    public String submissionTextLength (String submissionText) {
-        String ans = "";
-        for (int i = 0; i <submissionText.length(); i++) {
-            char arr = submissionText.charAt(i);
-            if (arr != ' '){
-                ans+= arr;
-            }
-        }
-        return ans;
-    }
-
     public void onClickSubmit(View v) {
         String submissionText = submission.getText().toString().toUpperCase();
 
         if ( submissionText.isEmpty() || !containsSymbol(submissionText) ) {
             Toast.makeText(getApplicationContext(), "Please Enter a valid argument!", Toast.LENGTH_SHORT).show();
         }
-
         else {
             char begin = submissionText.charAt(0);
+            for (int i = 1; i<submissionText.length(); i++) {
+                char position = submissionText.charAt(i);
+                char before = submissionText.charAt(i-1);
+                if (Character.isLetterOrDigit(position) && Character.isLetterOrDigit(before) ) {
+                    Toast.makeText(getApplicationContext(), "Please Enter a valid argument!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+            }
             if ( begin == '+' || begin == '-' || begin == '*' || begin == '/' || begin == '^' || begin == '%') {
                 Toast.makeText(getApplicationContext(), "Please Enter the expression in infix format!", Toast.LENGTH_LONG).show();
             }

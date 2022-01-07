@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">datastructuresproject</string>
+    <string name="app_name">BST Calculator</string>
 
     <string name="arithmetic">Input Arithmetic Expression:</string>
     <string name="submit">Submit</string>
@@ -12,6 +12,9 @@
     <string name="postorder">PostOrder</string>
     <string name="preorder">PreOrder</string>
     <string name="back">Back</string>
+
+    <!--             Info             -->
+    <string name="information">Back</string>
 
     <!--             Credits             -->
     <string name="Credits">Done by:<br />\nMohammad Diab el Harakeh (12190288)<br />\nSam Zahreddine (12190015)<br />\nOmar Zalat (12190293) </string>
