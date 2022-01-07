@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 @SuppressLint("SetTextI18n")
 public class options extends AppCompatActivity {
+    //Declaration of variables:
     private Button back, inOrder, postOrder, preOrder;
     private TextView result;
     private char negated = 0;
@@ -23,14 +24,13 @@ public class options extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
-
+        //Initialization of variables:
         back = findViewById(R.id.btnBack);
         inOrder = findViewById(R.id.btninorder);
         postOrder = findViewById(R.id.btnpostorder);
         preOrder = findViewById(R.id.btnpreorder);
 
         result = findViewById(R.id.txtResult);
-        System.out.println("RESULT IS: " + result);
 
         Intent i = getIntent();
         String infix = i.getStringExtra("expression");
@@ -44,7 +44,6 @@ public class options extends AppCompatActivity {
     }
 
     //------------------------------ BST LOGIC ------------------------------//
-
     class Node {
         public char data;
         public Node leftChild;
@@ -59,8 +58,7 @@ public class options extends AppCompatActivity {
         private Node[] a;
         private int top, m;
 
-        public Stack1(int max)
-        {
+        public Stack1(int max) {
             m = max;
             a = new Node[m];
             top = -1;
@@ -134,14 +132,14 @@ public class options extends AppCompatActivity {
                         output = output + ch;
                 }
             }
+            //Removing from stack and adding to the Tree:
             while (!s.isEmpty())
                 output = output + s.pop();
             return output;
         }
 
         private void gotOperator(char opThis, int priority1) {
-            while (!s.isEmpty())
-            {
+            while (!s.isEmpty()) {
                 char top = s.pop();
                 if (top == '(') {
                     s.push(top);
@@ -194,27 +192,29 @@ public class options extends AppCompatActivity {
             s = s + "?";
             int i = 0;
 
-            char symbol = s.charAt(i);
+            char character = s.charAt(i);
             Node nodeNew;
-            while (symbol != '?') {
-                if (Character.isLetterOrDigit(symbol) ) {
-                    nodeNew = new Node(symbol);
+            while (character != '?') {
+                //Checks if it's an operand and builds a node:
+                if (Character.isLetterOrDigit(character) ) {
+                    nodeNew = new Node(character);
                     stk.push(nodeNew);
                 }
-
-                else if (symbol == '+' || symbol == '-' || symbol == '/' || symbol == '*' || symbol == '^' || symbol == '%') {
+                //Checks if it's a symbol and builds 3 nodes:
+                else if (character == '+' || character == '-' || character == '/' || character == '*' || character == '^' || character == '%') {
                     Node ptr1 = stk.pop();
                     Node ptr2 = stk.pop();
-                    nodeNew = new Node(symbol);
+                    nodeNew = new Node(character);
                     nodeNew.leftChild = ptr2;
                     nodeNew.rightChild = ptr1;
                     stk.push(nodeNew);
                 }
-                if (symbol == '~') {
+                //If there is negation, take the negation + the letter after it as one letter:
+                if (character == '~') {
                     negated = s.charAt(i+1);
 
                 }
-                symbol = s.charAt(++i);
+                character = s.charAt(++i);
             }
             root = stk.pop();
         }
