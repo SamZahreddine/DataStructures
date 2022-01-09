@@ -1,7 +1,6 @@
 package com.example.datastructuresproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             else
                 counter.setText(String.valueOf(text.length()));
 
-            if (text.length() > 15)
+            if (text.length() <3 || text.length() > 15)
                 counter.setTextColor(getColor(R.color.red));
 
             else
@@ -82,16 +80,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please Enter a valid argument!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                else if (containsSymbol(String.valueOf(position)) && containsSymbol(String.valueOf(before))) {
+                    Toast.makeText(getApplicationContext(), "Please Enter a valid argument!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
             //If it begins with an operator:
             if ( begin == '+' || begin == '-' || begin == '*' || begin == '/' || begin == '^' || begin == '%') {
                 Toast.makeText(getApplicationContext(), "Please Enter the expression in infix format!", Toast.LENGTH_LONG).show();
             }
-
+            //if the user wrote more than 15 characters:
             else if (text.length() > 15) {
                 Toast.makeText(getApplicationContext(), "Expression too long!", Toast.LENGTH_SHORT).show();
             }
+            //if the user wrote less than 3 characters:
+            else if (text.length() <3) {
+                Toast.makeText(getApplicationContext(), "Expression too short!", Toast.LENGTH_SHORT).show();
+            }
+            //Open the next activity while sending the user's input in order to analyze it:
             else {
                 Intent i = new Intent(getApplicationContext(), options.class);
                 i.putExtra("expression", submissionText);
